@@ -8,8 +8,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Exercise1();
+        //Exercise1();
 
+        Exercise2();
 
         Console.WriteLine("\n");
         Console.WriteLine("Enter to exit...");
@@ -30,6 +31,29 @@ class Program
             }
         }
         Console.WriteLine($"Soma: {sum}");
+    }
+
+    public static void Exercise2() {
+        int term1 = 1;
+        int term2 = 2;
+        int v = 0;
+
+        //t + t2 = v; t = t2; t2 = v;
+        //while (v < 4000000) {
+        //    v = term1 + term2;
+        //    term1 = term2;
+        //    term2 = v;
+        //}
+        while (term2 <= 4000000) {
+            if (term2 % 2 == 0)
+                v += term2;
+
+            int temp = term1 + term2;
+            term1 = term2;
+            term2 = temp;
+        }
+
+        Console.WriteLine("Soma dos termos pares: " + v);
     }
 
 }
