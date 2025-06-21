@@ -10,7 +10,11 @@ class Program
     {
         //Exercise1();
 
-        Exercise2();
+        //Exercise2();
+
+        //Exercise3();
+
+        Exercise4();
 
         Console.WriteLine("\n");
         Console.WriteLine("Enter to exit...");
@@ -56,5 +60,55 @@ class Program
         Console.WriteLine("Soma dos termos pares: " + v);
     }
 
+    public static void Exercise3() {
+        long k1 = 600851475143;
+        long factor = 2;
+
+        Console.Write("Factors: ");
+        while (factor * factor <= k1) {
+
+            if(k1 % factor == 0) {
+                k1 /= factor;
+
+                Console.Write(factor + ", ");
+            } else {
+                factor++;
+            }
+        }
+        Console.WriteLine( "\n" + k1);
+
+    }
+
+    public static void Exercise4() {
+        
+        int polindromo = 0;
+        int k1 = 0;
+        int k2 = 0;
+
+
+
+        for (int i = 999; i >= 100; i--) {
+
+            for(int j = i; j >= 100; j--) {
+
+                int produto = i * j;
+
+                if (E_Polindromo(produto) && produto > polindromo) {
+
+                    polindromo = produto;
+                    k1 = i;
+                    k2 = j;
+                }
+            }
+        }
+        Console.WriteLine($"{polindromo} : {k1}, {k2}");
+    }
+    static bool E_Polindromo(int k3) {
+        string numero = k3.ToString();
+        char[] n_poli = numero.ToCharArray();
+        Array.Reverse(n_poli);
+        string inv_numero = new string(n_poli);
+        return numero == inv_numero;
+    }
 }
 
